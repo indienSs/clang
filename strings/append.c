@@ -10,9 +10,6 @@ int main(void) {
 
     string str1 = "first string";
     string str2 = "second string";
-    // strcat(str1, str2);
-
-    // printf("String 1 value: %s\n", str1);
 
     string str3 = str_append(str1, str2);
     printf("append function result: %s\n", str3);
@@ -27,13 +24,11 @@ string str_append(const string str1, const string str2) {
 
     string new_string = calloc(new_string_length, sizeof(char));
 
-    for (int i = 0; i < str1_length; i++) {
+    for (int i = 0; i < str1_length; i++) 
         new_string[i] = str1[i];
-    }
-
-    for (int i = 0; i < str2_length; i++) {
+    
+    for (int i = 0; i < str2_length; i++) 
         new_string[str1_length + i] = str2[i];
-    }
-
+    
     return new_string;
 }
