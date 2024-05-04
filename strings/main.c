@@ -7,7 +7,8 @@
 #define string char*
 
 int vowels_counter(const string str);
-bool string_includes(char* str, char* word);
+bool string_includes(string str, string word);
+void remove_letter(string str, char letter);
 
 int main(void) {
     string example = "this is string";
@@ -35,7 +36,7 @@ int vowels_counter(const string str) {
     return counter;
 }
 
-bool string_includes(char* str, char* word) {
+bool string_includes(string str, string word) {
     int str_len = strlen(str);
     int word_len = strlen(word);
     int str_end = str_len - word_len + 1;
@@ -56,4 +57,19 @@ bool string_includes(char* str, char* word) {
     }
 
     return includes;
+}
+
+void remove_letter(string str, char letter) {
+    int index = 0;
+
+    while (str[index] != "\0") {
+        if (str[index] == letter) {
+            int shift_position = index;
+            while (str[shift_position] != "\0") {
+                str[shift_position] = str[shift_position++];
+            }
+        } else {
+            ++index;
+        }
+    }
 }
