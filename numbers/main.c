@@ -3,7 +3,7 @@
 #include <time.h>
 #include <string.h>
 
-#define  string char*
+#define string char*
 
 int randomize(int);
 int binary_to_decimal(string);
@@ -16,11 +16,11 @@ int main(void) {
     return 0;
 }
 
-int randomize(int max) {
+int number_randomize(int max) {
     return rand() % max + 1;
 }
 
-int binary_to_decimal(string str) {
+int number_binary_to_decimal(string str) {
     size_t length = strlen(str);
     int result = 0;
     int period = 1;

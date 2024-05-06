@@ -6,11 +6,11 @@
 
 #define string char*
 
-void shift_capitalize(string);
-void remove_letter(string, char);
-int vowels_counter(const string);
+void string_switch_capitalize(string);
+void string_remove_letter(string, char);
+int string_vowels_counter(const string);
 bool string_includes(string, string);
-string str_append(const string, const string);
+string string_append(const string, const string);
 
 int main(void) {
     string example = "this is string";
@@ -23,7 +23,7 @@ int main(void) {
     return 0;
 }
 
-int vowels_counter(const string str) {
+int string_vowels_counter(const string str) {
     int counter = 0;
     for (int i = 0; i < strlen(str); i++) {
         switch (tolower(str[i])) {
@@ -61,7 +61,7 @@ bool string_includes(string str, string word) {
     return includes;
 }
 
-void remove_letter(string str, char letter) {
+void string_remove_letter(string str, char letter) {
     int index = 0;
 
     while (str[index] != "\0") {
@@ -76,7 +76,7 @@ void remove_letter(string str, char letter) {
     }
 }
 
-string str_append(const string str1, const string str2) {
+string string_append(const string str1, const string str2) {
     size_t str1_length = strlen(str1);
     size_t str2_length = strlen(str2);
     int new_string_length = str1_length + str2_length + 1;
@@ -92,7 +92,7 @@ string str_append(const string str1, const string str2) {
     return new_string;
 }
 
-void shift_capitalize(string str) {
+void string_switch_capitalize(string str) {
     size_t length = strlen(str);
 
     for (int i = 0; i < length; i++) {

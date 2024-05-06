@@ -17,7 +17,7 @@ int main(void) {
     return 0;
 }
 
-void reverse_array(int *arr, size_t length) {
+void array_reverse(int *arr, size_t length) {
     for (int i = 0; i < length / 2; i++) {
         int tmp = arr[i];
         arr[i] = arr[length - i - 1];
@@ -25,14 +25,14 @@ void reverse_array(int *arr, size_t length) {
     }
 }
 
-void print_array(int *arr, size_t length) {
+void array_print(int *arr, size_t length) {
     for (int i = 0; i < length; i++) {
         printf("%d, ", arr[i]);
     }
     printf("\n");
 }
 
-void* copy_array(int *arr, size_t length) {
+void* array_copy(int *arr, size_t length) {
     int* copy_arr = malloc(sizeof(int) * length);
     for (int i = 0; i < length; i++) 
         copy_arr[i] = arr[i];
