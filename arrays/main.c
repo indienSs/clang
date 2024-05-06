@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void reverse_array(int *arr, size_t length);
-void print_array(int *arr, size_t length);
-int* copy_array(int *arr, size_t length);
+void array_reverse(int *arr, size_t length);
+void array_print(int *arr, size_t length);
+int* array_copy(int *arr, size_t length);
 
 int main(void) {
     int arr[] = {0, 1, 2, 3, 4, 5};

@@ -5,13 +5,13 @@
 
 #define string char*
 
-int randomize(int);
-int binary_to_decimal(string);
+int number_randomize(int);
+int number_binary_to_decimal(string);
 
 int main(void) {
     srand(time(NULL));
     for (int i = 0; i < 10; i++)
-        printf("random number is: %d\n", randomize(10));
+        printf("random number is: %d\n", number_randomize(10));
 
     return 0;
 }
