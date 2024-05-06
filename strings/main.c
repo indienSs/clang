@@ -6,11 +6,11 @@
 
 #define string char*
 
+void shift_capitalize(string);
+void remove_letter(string, char);
 int vowels_counter(const string);
 bool string_includes(string, string);
-void remove_letter(string, char);
 string str_append(const string, const string);
-void shift_capitalize(string);
 
 int main(void) {
     string example = "this is string";

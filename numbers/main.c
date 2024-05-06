@@ -1,8 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
+
+#define  string char*
 
 int randomize(int);
+int binary_to_decimal(string);
 
 int main(void) {
     srand(time(NULL));
@@ -14,4 +18,16 @@ int main(void) {
 
 int randomize(int max) {
     return rand() % max + 1;
+}
+
+int binary_to_decimal(string str) {
+    size_t length = strlen(str);
+    int result = 0;
+    int period = 1;
+    
+    for (int i = length - 1; i >= 0; --i, period *= 2) 
+        if (str[i] == "1")
+            result += period;
+
+    return result;
 }
