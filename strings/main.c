@@ -8,6 +8,7 @@
 
 void string_switch_capitalize(string);
 void string_remove_letter(string, char);
+void string_replace_letter(string, char, char);
 int string_vowels_counter(const string);
 bool string_includes(string, string);
 string string_append(const string, const string);
@@ -95,8 +96,15 @@ string string_append(const string str1, const string str2) {
 void string_switch_capitalize(string str) {
     size_t length = strlen(str);
 
-    for (int i = 0; i < length; i++) {
+    for (int i = 0; i < length; i++) 
         if (isupper(str[i])) str[i] = tolower(str[i]);
         else str[i] = toupper(str[i]);
-    }
+}
+
+void string_replace_letter(string str, char old, char new) {
+    size_t length = strlen(str);
+
+    for (int i = 0; i < length; ++i)
+        if (str[i] == old)
+            str[i] = new;
 }
