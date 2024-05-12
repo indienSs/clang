@@ -3,11 +3,8 @@
 int calculate_fib(int num);
 
 int main(void) {
-    
     int result = calculate_fib(10);
-
     printf("result: %d\n", result);
-
     return 0;
 }
 
