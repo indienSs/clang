@@ -4,7 +4,10 @@
 
 int* buffers_create(int size) {
     int* buffer = malloc(sizeof(int) * size);
+    return buffer;
+}
 
+void buffers_iterate(int* buffer, int size) {
     int data = 0;
     int element_number = 0;
 
