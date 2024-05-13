@@ -2,7 +2,14 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-int* buffers_create(int size) {
+#define BUFFER_SIZE 512
+
+int buffers_create() {
+    int buffer[BUFFER_SIZE];
+    return buffer;
+}
+
+int* buffers_create_dynamic(int size) {
     int* buffer = malloc(sizeof(int) * size);
     return buffer;
 }

@@ -11,6 +11,7 @@ void string_remove_letter(string, char);
 void string_replace_letter(string, char, char);
 int string_vowels_counter(const string);
 bool string_includes(string, string);
+bool strings_is_only_letters(string str);
 string string_append(const string, const string);
 
 int main(void) {
@@ -107,4 +108,15 @@ void string_replace_letter(string str, char old, char new) {
     for (int i = 0; i < length; ++i)
         if (str[i] == old)
             str[i] = new;
+}
+
+bool strings_is_only_letters(string str) {
+    bool result = true;
+    size_t length = strlen(str);
+
+    for (int i = 0; i < length; ++i) 
+        if (str[i] != ' ' && !isalpha(str[i]))
+            result = false;
+    
+    return result;
 }
