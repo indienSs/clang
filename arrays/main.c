@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void array_reverse(int *arr, size_t length);
-void array_print(int *arr, size_t length);
-int* array_copy(int *arr, size_t length);
+void array_reverse(int*, size_t);
+void array_print(int*, size_t);
+int* array_copy(int*, size_t);
+int array_intersection_index(int*, int, int*, int);
 
 int main(void) {
     int arr[] = {0, 1, 2, 3, 4, 5};
@@ -38,4 +39,14 @@ void* array_copy(int *arr, size_t length) {
         copy_arr[i] = arr[i];
     
     return copy_arr;
+}
+
+int array_intersection_index(int* first, int first_length, int* second, int second_length) {
+    int iteration_length = first_length > second_length ? second_length : first_length;
+
+    for (int i = 0; i < iteration_length; ++i)
+        if (first[i] == second[i]) 
+            return i;
+        
+    return -1;
 }
