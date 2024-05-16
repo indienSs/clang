@@ -64,8 +64,8 @@ int* array_merge_sorted(int* first, int first_length, int* second, int second_le
             result[insert_index] = first[i];
             result[insert_index+1] = second[i];
         } else {
-            result[insert_index] = first[i];
-            result[insert_index+1] = second[i];
+            result[insert_index+1] = first[i];
+            result[insert_index] = second[i];
         }
     }
 
