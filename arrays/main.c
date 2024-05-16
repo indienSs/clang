@@ -5,6 +5,7 @@ void array_reverse(int*, size_t);
 void array_print(int*, size_t);
 int* array_copy(int*, size_t);
 int array_intersection_index(int*, int, int*, int);
+int* array_merge_sorted(int*, int, int*, int);
 
 int main(void) {
     int arr[] = {0, 1, 2, 3, 4, 5};
@@ -49,4 +50,27 @@ int array_intersection_index(int* first, int first_length, int* second, int seco
             return i;
         
     return -1;
+}
+
+int* array_merge_sorted(int* first, int first_length, int* second, int second_length) {
+    int shortest_length = first_length > second_length ? second_length : first_length;
+    int biggest_length = first_length < second_length ? second_length : first_length;
+    int* biggest_array = first_length < second_length ? second : first;
+    int* result = malloc(sizeof(int) * (first_length + second_length));
+
+    for (int i = 0; i < shortest_length; i++) {
+        int insert_index = i*2;
+        if (first[i] < second[i]) {
+            result[insert_index] = first[i];
+            result[insert_index+1] = second[i];
+        } else {
+            result[insert_index] = first[i];
+            result[insert_index+1] = second[i];
+        }
+    }
+
+    for (int i = shortest_length; i < biggest_length; i++)
+        result[i*2] = biggest_array[i];
+
+    return result;
 }
