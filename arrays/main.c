@@ -6,6 +6,7 @@ void array_print(int*, size_t);
 int* array_copy(int*, size_t);
 int array_intersection_index(int*, int, int*, int);
 int* array_merge_sorted(int*, int, int*, int);
+int array_count_uniq(int*, int);
 
 int main(void) {
     int arr[] = {0, 1, 2, 3, 4, 5};
@@ -73,4 +74,19 @@ int* array_merge_sorted(int* first, int first_length, int* second, int second_le
         result[i*2] = biggest_array[i];
 
     return result;
+}
+
+int array_count_uniq(int* arr, int length) {
+    int uniq_counter = 0;
+    int i, j;
+
+    for (i = 0; i < length; ++i) {
+        for (j = 0; j < length; ++j) {
+            if (arr[i] == arr[j] && i != j) 
+                break;
+        }
+        if (j == length) uniq_counter++;
+    }
+    
+    return uniq_counter;
 }
