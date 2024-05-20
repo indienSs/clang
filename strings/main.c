@@ -8,10 +8,11 @@
 
 void string_switch_capitalize(string);
 void string_remove_letter(string, char);
+void string_trim_begin(string);
 void string_replace_letter(string, char, char);
 int string_vowels_counter(const string);
 bool string_includes(string, string);
-bool strings_is_only_letters(string str);
+bool string_is_only_letters(string str);
 string string_append(const string, const string);
 
 int main(void) {
@@ -110,7 +111,7 @@ void string_replace_letter(string str, char old, char new) {
             str[i] = new;
 }
 
-bool strings_is_only_letters(string str) {
+bool string_is_only_letters(string str) {
     bool result = true;
     size_t length = strlen(str);
 
@@ -119,4 +120,21 @@ bool strings_is_only_letters(string str) {
             result = false;
     
     return result;
+}
+
+void string_trim_begin(string str) {
+    int count = 0;
+    
+    while (str[count] == ' ' || str[count] == '\n' || str[count] == '\t')
+        count++;
+
+    if (count != 0) {
+        int pos = 0;
+        while (str[count] != '\0') {
+            str[pos] = str[pos+count];
+            pos++;
+        }
+        str[pos] = '\0';
+    }
+
 }
