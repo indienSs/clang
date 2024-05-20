@@ -4,17 +4,17 @@
 
 #define BUFFER_SIZE 512
 
-int buffers_create() {
+int buffer_create() {
     int buffer[BUFFER_SIZE];
     return buffer;
 }
 
-int* buffers_create_dynamic(int size) {
+int* buffer_create_dynamic(int size) {
     int* buffer = malloc(sizeof(int) * size);
     return buffer;
 }
 
-void buffers_iterate(int* buffer, int size) {
+void buffer_iterate(int* buffer, int size) {
     int data = 0;
     int element_number = 0;
 
