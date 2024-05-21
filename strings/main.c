@@ -126,7 +126,7 @@ bool string_is_only_letters(string str) {
 void string_trim_begin(string str) {
     int count = 0;
     
-    while (str[count] == ' ' || str[count] == '\n' || str[count] == '\t')
+    while (isspace(str[count]))
         ++count;
 
     if (count != 0) {
@@ -144,7 +144,7 @@ void string_trim_end(string str) {
     size_t index = strlen(str) - 1;
     
     while (index > 0)
-        if (str[index] == ' ' || str[index] == '\n' || str[index] == '\t')
+        if (isspace(str[index]))
             --index;
         else
             break;

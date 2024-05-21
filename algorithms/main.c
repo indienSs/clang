@@ -1,7 +1,7 @@
 #include <stdbool.h>
 
 void algorithhm_bubble_sort(int*, int);
-int calculate_fib(int);
+int algorithm_fibonacci(int);
 
 int main(void) {
     return 0;

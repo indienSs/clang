@@ -78,13 +78,13 @@ int* array_merge_sorted(int* first, int first_length, int* second, int second_le
 
 int array_count_uniq(int* arr, int length) {
     int uniq_counter = 0;
-    int i, j;
+    int j;
 
-    for (i = 0; i < length; ++i) {
-        for (j = 0; j < length; ++j) {
+    for (int i = 0; i < length; ++i) {
+        for (j = 0; j < length; ++j) 
             if (arr[i] == arr[j] && i != j) 
                 break;
-        }
+        
         if (j == length) uniq_counter++;
     }
     
