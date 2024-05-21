@@ -9,6 +9,7 @@
 void string_switch_capitalize(string);
 void string_remove_letter(string, char);
 void string_trim_begin(string);
+void string_trim_end(string);
 void string_replace_letter(string, char, char);
 int string_vowels_counter(const string);
 bool string_includes(string, string);
@@ -126,15 +127,27 @@ void string_trim_begin(string str) {
     int count = 0;
     
     while (str[count] == ' ' || str[count] == '\n' || str[count] == '\t')
-        count++;
+        ++count;
 
     if (count != 0) {
         int pos = 0;
         while (str[count] != '\0') {
             str[pos] = str[pos+count];
-            pos++;
+            ++pos;
         }
         str[pos] = '\0';
     }
 
+}
+
+void string_trim_end(string str) {
+    size_t index = strlen(str) - 1;
+    
+    while (index > 0)
+        if (str[index] == ' ' || str[index] == '\n' || str[index] == '\t')
+            --index;
+        else
+            break;
+    
+    str[index+1] = '\0';
 }
