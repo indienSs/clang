@@ -12,6 +12,7 @@ void string_trim_begin(string);
 void string_trim_end(string);
 void string_replace_letter(string, char, char);
 int string_vowels_counter(const string);
+int string_word_count(string str);
 bool string_includes(string, string);
 bool string_is_only_letters(string str);
 string string_append(const string, const string);
@@ -150,4 +151,15 @@ void string_trim_end(string str) {
             break;
     
     str[index+1] = '\0';
+}
+
+int string_word_count(string str) {
+    int length = strlen(str);
+    int count = 0;
+
+    for (int i = 0; i < length; ++i) 
+        if (str[i] == ' ') 
+            ++count;
+    
+    return count + 1;
 }
