@@ -154,12 +154,28 @@ void string_trim_end(string str) {
 }
 
 int string_word_count(string str) {
+    // int length = strlen(str);
+    // int count = 0;
+    // for (int i = 0; i < length; ++i) 
+    //     if (str[i] == ' ') 
+    //         ++count;
+    // return count + 1;
     int length = strlen(str);
     int count = 0;
+    char symbols[] = " .,-\n\t";
 
-    for (int i = 0; i < length; ++i) 
-        if (str[i] == ' ') 
-            ++count;
-    
-    return count + 1;
+    for (int i = 0; i < length; ++i) {
+        while (i < length) {
+            if (strchr(symbols, str[i]) != NULL)
+                break;
+            ++i;
+        }
+        ++count;
+        while (i < length) {
+            if (strchr(symbols, str[i]) == NULL)
+                break;
+            ++i;
+        }
+    }
+    return count;
 }
