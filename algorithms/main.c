@@ -1,6 +1,7 @@
 #include <stdbool.h>
 
 void algorithhm_bubble_sort(int*, int);
+void algorithm_insertion_sort(int*, int);
 int algorithm_fibonacci(int);
 
 int main(void) {
@@ -8,16 +9,6 @@ int main(void) {
 }
 
 void algorithhm_bubble_sort(int* arr, int length) {
-    // for (int i = 0; i < length; ++i) {
-    //     for (int j = 0; j < length - 1; ++j) {
-    //         if (arr[j] > arr[j+1]) {
-    //             int temp = arr[j];
-    //             arr[j] = arr[j+1];
-    //             arr[j+1] = temp;
-    //         }
-    //     }
-    // }
-
     bool swapped = false;
     do {
         swapped = false;
@@ -30,6 +21,18 @@ void algorithhm_bubble_sort(int* arr, int length) {
             }
         }
     } while (swapped);
+}
+
+void algorithm_insertion_sort(int* arr, int length) {
+    for (int i = 1; i < length; ++i) {
+        int num = arr[i];
+        int comp = i - 1;
+        while (comp >= 0 && arr[comp] > num) {
+            arr[comp+1] = arr[comp];
+            comp -= 1;
+        }
+        arr[comp+1] = num;
+    }
 }
 
 int algorithm_fibonacci(int num) {
