@@ -11,6 +11,7 @@ void string_remove_letter(string, char);
 void string_trim_begin(string);
 void string_trim_end(string);
 void string_replace_letter(string, char, char);
+void string_remove_char(string, int);
 int string_vowels_counter(const string);
 int string_word_count(string str);
 bool string_includes(string, string);
@@ -154,12 +155,6 @@ void string_trim_end(string str) {
 }
 
 int string_word_count(string str) {
-    // int length = strlen(str);
-    // int count = 0;
-    // for (int i = 0; i < length; ++i) 
-    //     if (str[i] == ' ') 
-    //         ++count;
-    // return count + 1;
     int length = strlen(str);
     int count = 0;
     char symbols[] = " .,-\n\t";
@@ -178,4 +173,12 @@ int string_word_count(string str) {
         }
     }
     return count;
+}
+
+void string_remove_char(string str, int position) {
+    size_t length = strlen(str);
+    if (position >= length) return;
+
+    for (int i = position; i < length; ++i)
+        str[i] = str[i+1];
 }

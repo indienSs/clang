@@ -1,10 +1,18 @@
 #include <stdbool.h>
+#include <stdio.h>
 
 void algorithhm_bubble_sort(int*, int);
 void algorithm_insertion_sort(int*, int);
 int algorithm_fibonacci(int);
 
 int main(void) {
+    int arr[] = {0, 3, 1, 5, 6, 4, 2};
+
+    algorithm_insertion_sort(arr, 7);
+    // algorithhm_bubble_sort(arr, 7);
+    for (int i = 0; i < 7; ++i)
+        printf("%d", arr[i]);
+    
     return 0;
 }
 
