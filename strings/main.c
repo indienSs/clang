@@ -12,6 +12,8 @@ void string_trim_begin(string);
 void string_trim_end(string);
 void string_replace_letter(string, char, char);
 void string_remove_char(string, int);
+void string_to_uppercase(string);
+void string_to_lowercase(string);
 int string_vowels_counter(const string);
 int string_word_count(string str);
 bool string_includes(string, string);
@@ -181,4 +183,16 @@ void string_remove_char(string str, int position) {
 
     for (int i = position; i < length; ++i)
         str[i] = str[i+1];
+}
+
+void string_to_uppercase(string str) {
+    size_t length = strlen(str);
+    for (int i = 0; i < length; ++i)
+        str[i] = tolower(str[i]);
+}
+
+void string_to_lowercase(string str) {
+    size_t length = strlen(str);
+    for (int i = 0; i < length; ++i)
+        str[i] = toupper(str[i]);
 }
