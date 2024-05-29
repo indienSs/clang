@@ -3,6 +3,7 @@
 
 void algorithhm_bubble_sort(int*, int);
 void algorithm_insertion_sort(int*, int);
+int algorithm_binary_search(int*, int, int);
 int algorithm_fibonacci(int);
 
 int main(void) {
@@ -12,6 +13,9 @@ int main(void) {
     // algorithhm_bubble_sort(arr, 7);
     for (int i = 0; i < 7; ++i)
         printf("%d", arr[i]);
+
+    int idx = algorithm_binary_search(arr, 7, 5);
+    printf("\n%d", idx);
     
     return 0;
 }
@@ -57,4 +61,17 @@ int algorithm_fibonacci(int num) {
     }
 
     return second;
+}
+
+int algorithm_binary_search(int* arr, int length, int element) {
+    int left = 0;
+    int right = length - 1;
+    int middle;
+    while (left <= right) {
+        middle = (left + right) / 2;
+        if (arr[middle] == element) return middle;
+        else if (arr[middle] < element) left = middle + 1;
+        else right = middle;
+    }
+    return -1;
 }
