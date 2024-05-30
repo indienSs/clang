@@ -22,7 +22,6 @@ char* files_read_file(char* path) {
             buffer = realloc(buffer, sizeof(char) * buffer_size);
         }
     }
-    buffer[i] = -1;
     fclose(fb);
     return buffer;
 }
