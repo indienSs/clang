@@ -16,13 +16,13 @@ char* files_read_file(char* path) {
     if (fb == NULL) return buffer;
     int i = 0;
     while ((buffer[i] = fgetc(fb)) != EOF) {
-        i++;
-        if (buffer_size - 1 == i) {
+        ++i;
+        if (i == buffer_size) {
             buffer_size *= 2;
             buffer = realloc(buffer, sizeof(char) * buffer_size);
         }
     }
-    buffer[++i] = EOF;
+    buffer[i] = -1;
     fclose(fb);
     return buffer;
 }
