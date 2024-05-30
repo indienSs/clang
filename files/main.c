@@ -13,7 +13,7 @@ char* files_read_file(char* path) {
     char *buffer = malloc(sizeof(char) * buffer_size);
 
     fb = fopen(path, "r");
-    if (fb == NULL) return "";
+    if (fb == NULL) return buffer;
     int i = 0;
     while ((buffer[i] = fgetc(fb)) != EOF) {
         i++;
