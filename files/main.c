@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define DEFAULT_BUFFER_SIZE 1024
+
 char* files_read_file(char*);
 
 int main(void) {
@@ -9,7 +11,7 @@ int main(void) {
 
 char* files_read_file(char* path) {
     FILE *fb;
-    int buffer_size = 256;
+    int buffer_size = DEFAULT_BUFFER_SIZE;
     char *buffer = NULL;
 
     fb = fopen(path, "r");
