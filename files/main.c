@@ -10,10 +10,11 @@ int main(void) {
 char* files_read_file(char* path) {
     FILE *fb;
     int buffer_size = 256;
-    char *buffer = malloc(sizeof(char) * buffer_size);
+    char *buffer = NULL;
 
     fb = fopen(path, "r");
     if (fb == NULL) return buffer;
+    buffer = malloc(sizeof(char) * buffer_size);
     int i = 0;
     while ((buffer[i] = fgetc(fb)) != EOF) {
         ++i;
