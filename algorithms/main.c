@@ -3,14 +3,16 @@
 
 void algorithhm_bubble_sort(int*, int);
 void algorithm_insertion_sort(int*, int);
+void algorithm_selection_sort(int*, int);
 int algorithm_binary_search(int*, int, int);
 int algorithm_fibonacci(int);
 
 int main(void) {
     int arr[] = {0, 3, 1, 5, 6, 4, 2};
 
-    algorithm_insertion_sort(arr, 7);
+    // algorithm_insertion_sort(arr, 7);
     // algorithhm_bubble_sort(arr, 7);
+    algorithm_selection_sort(arr, 7);
     for (int i = 0; i < 7; ++i)
         printf("%d", arr[i]);
 
@@ -74,4 +76,17 @@ int algorithm_binary_search(int* arr, int length, int element) {
         else right = middle;
     }
     return -1;
+}
+
+void algorithm_selection_sort(int* arr, int length) {
+    for (int i = 0; i < length; ++i) {
+        int min = i;
+        for (int j = i + 1; j < length; ++j) 
+            if (arr[j] < arr[min]) min = j;
+        if (min != i) {
+            int temp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = temp;
+        }
+    }
 }
