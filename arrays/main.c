@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void array_reverse(int*, size_t);
 void array_print(int*, size_t);
@@ -7,6 +8,7 @@ int* array_copy(int*, size_t);
 int array_intersection_index(int*, int, int*, int);
 int* array_merge_sorted(int*, int, int*, int);
 int array_count_uniq(int*, int);
+void array_sort_strings(char**, int length, int order);
 
 int main(void) {
     int arr[] = {0, 1, 2, 3, 4, 5};
@@ -89,4 +91,19 @@ int array_count_uniq(int* arr, int length) {
     }
     
     return uniq_counter;
+}
+
+void array_sort_strings(char** strs, int length, int order) {
+    char temp[128] = "";
+    for (int i = 0; i < length - 1; ++i) {
+        int min = i;
+        for (int j = i + 1; j < length; ++j) 
+            if (strcmp(strs[j], strs[min]) < 0)
+                min = j;
+        if (min != i) {
+            strcpy(temp, strs[i]);
+            strcpy(strs[i], strs[min]);
+            strcpy(strs[min], temp);
+        }
+    }
 }
