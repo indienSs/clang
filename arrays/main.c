@@ -98,8 +98,9 @@ void array_sort_strings(char** strs, int length, int order) {
     for (int i = 0; i < length - 1; ++i) {
         int min = i;
         for (int j = i + 1; j < length; ++j) 
-            if (strcmp(strs[j], strs[min]) < 0)
+            if ((strcmp(strs[j], strs[min]) < 0 && order == 1) || (strcmp(strs[j], strs[min]) > 0 && order == -1))
                 min = j;
+
         if (min != i) {
             strcpy(temp, strs[i]);
             strcpy(strs[i], strs[min]);
