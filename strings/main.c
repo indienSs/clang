@@ -19,6 +19,7 @@ int string_word_count(string str);
 bool string_includes(string, string);
 bool string_is_only_letters(string str);
 string string_append(const string, const string);
+string string_substring(const string, int);
 
 int main(void) {
     string example = "this is string";
@@ -195,4 +196,15 @@ void string_to_lowercase(string str) {
     size_t length = strlen(str);
     for (int i = 0; i < length; ++i)
         str[i] = toupper(str[i]);
+}
+
+string string_substring(const string str, int index) {
+    size_t new_str_len = strlen(str) - index;
+    string new_str = malloc(sizeof(char) * new_str_len);
+
+    for (int i = 0; i < new_str_len; ++i)
+        new_str[i] = str[i+index];
+    new_str[new_str_len] = '\0';
+    
+    return new_str;
 }
