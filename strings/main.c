@@ -10,14 +10,16 @@ void string_switch_capitalize(string);
 void string_remove_letter(string, char);
 void string_trim_begin(string);
 void string_trim_end(string);
+void string_reverse(string);
 void string_replace_letter(string, char, char);
 void string_remove_char(string, int);
 void string_to_uppercase(string);
 void string_to_lowercase(string);
 int string_vowels_counter(const string);
-int string_word_count(string str);
+int string_word_count(string);
 bool string_includes(string, string);
-bool string_is_only_letters(string str);
+bool string_is_only_letters(string);
+bool string_ends_with(string, string);
 string string_append(const string, const string);
 string string_substring(const string, int);
 
@@ -207,4 +209,21 @@ string string_substring(const string str, int index) {
     new_str[new_str_len] = '\0';
     
     return new_str;
+}
+
+bool string_ends_with(string str, string end_str) {
+    
+}
+
+void string_reverse(string str) {
+    size_t length = strlen(str);
+    int l = 0;
+    int r = length - 1;
+    while (l < r) {
+        char temp = str[l];
+        str[l] = str[r];
+        str[r] = temp;
+        ++l;
+        --r;
+    }
 }
