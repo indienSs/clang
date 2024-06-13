@@ -212,13 +212,20 @@ string string_substring(const string str, int index) {
 }
 
 bool string_ends_with(string str, string end_str) {
+    size_t str_length = strlen(str);
+    size_t end_length = strlen(end_str);
+
+    if (str_length < end_length) return false;
+
+    for (int i = 1; i <= end_length; ++i)
+        if (str[str_length - i] != end_str[end_length - i]) return false;
     
+    return true;
 }
 
 void string_reverse(string str) {
-    size_t length = strlen(str);
     int l = 0;
-    int r = length - 1;
+    int r = strlen(str) - 1;
     while (l < r) {
         char temp = str[l];
         str[l] = str[r];
