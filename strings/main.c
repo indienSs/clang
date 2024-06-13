@@ -218,7 +218,8 @@ bool string_ends_with(string str, string end_str) {
     if (str_length < end_length) return false;
 
     for (int i = 1; i <= end_length; ++i)
-        if (str[str_length - i] != end_str[end_length - i]) return false;
+        if (str[str_length - i] != end_str[end_length - i]) 
+            return false;
     
     return true;
 }
