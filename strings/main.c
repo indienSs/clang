@@ -203,7 +203,7 @@ void string_to_lowercase(string str) {
 
 string string_substring(const string str, int index) {
     size_t new_str_len = strlen(str) - index;
-    string new_str = malloc(sizeof(char) * new_str_len);
+    string *new_str = malloc(sizeof(char) * new_str_len);
 
     for (int i = 0; i < new_str_len; ++i)
         new_str[i] = str[i+index];
