@@ -19,6 +19,7 @@ int string_vowels_counter(const string);
 int string_word_count(string);
 bool string_includes(string, string);
 bool string_is_only_letters(string);
+bool string_starts_with(string, string);
 bool string_ends_with(string, string);
 string string_append(const string, const string);
 string string_substring(const string, int);
@@ -209,6 +210,19 @@ string string_substring(const string str, int index) {
     new_str[new_str_len] = '\0';
     
     return new_str;
+}
+
+bool string_starts_with(string str, string start_str) {
+    size_t str_length = strlen(str);
+    size_t start_length = strlen(start_str);
+
+    if (str_length < start_str) return false;
+
+    for (int i = 0; i < start_length; ++i)
+        if (str[i] != start_str[i]) 
+            return false;
+    
+    return true;
 }
 
 bool string_ends_with(string str, string end_str) {
