@@ -1,0 +1,17 @@
+void string_switch_capitalize(char*);
+void string_remove_letter(char*, char);
+void string_trim_begin(char*);
+void string_trim_end(char*);
+void string_reverse(char*);
+void string_replace_letter(char*, char, char);
+void string_remove_char(char*, int);
+void string_to_uppercase(char*);
+void string_to_lowercase(char*);
+int string_vowels_counter(const char*);
+int string_word_count(char*);
+bool string_includes(char*, char*);
+bool string_is_only_letters(char*);
+bool string_starts_with(char*, char*);
+bool string_ends_with(char*, char*);
+char* string_append(const char*, const char*);
+char* string_substring(const char*, int);
