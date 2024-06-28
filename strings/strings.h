@@ -15,3 +15,4 @@ bool string_starts_with(char*, char*);
 bool string_ends_with(char*, char*);
 char* string_append(const char*, const char*);
 char* string_substring(const char*, int);
+char* string_count_char(const char*, char);

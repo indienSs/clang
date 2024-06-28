@@ -190,6 +190,7 @@ string string_substring(const string str, int index) {
 
     for (int i = 0; i < new_str_len; ++i)
         new_str[i] = str[i+index];
+    
     new_str[new_str_len] = '\0';
     
     return new_str;
@@ -231,4 +232,15 @@ void string_reverse(string str) {
         ++l;
         --r;
     }
+}
+
+char* string_count_char(const string str, char checked) {
+    size_t str_length = strlen(str);
+    int counter = 0;
+    
+    for (int i = 0; i < str_length; ++i) 
+        if (str[i] == checked)
+            ++counter;
+    
+    return counter;
 }
